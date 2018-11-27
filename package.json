@@ -16,7 +16,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "heroku-postbuild": "npm run test:unit && npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "register-service-worker": "^1.5.2",
