@@ -1,24 +1,19 @@
 {
   "name": "smart-logger",
-  "description": "Activity logger for companies",
   "version": "1.0.0",
+  "description": "Activity logger for companies",
   "author": "Vasilis Koukoutis",
-  "main": "main.js",
-  "engines": {
-    "node": "10.11.0",
-    "npm": "6.4.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vkouk/smart-logger-api.git"
-  },
   "scripts": {
-    "start": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "heroku-postbuild": "npm run build"
+    "apollo": "vue-cli-service apollo:watch --run \"vue-cli-service serve\"",
+    "apollo:run": "vue-cli-service apollo:run",
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "apollo-boost": "^0.1.22",
+    "graphql": "^14.0.2",
+    "graphql-type-json": "^0.2.1",
     "register-service-worker": "^1.5.2",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
@@ -32,11 +27,11 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "graphql-tag": "^2.9.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
   },
-  "license": "ISC",
   "postcss": {
     "plugins": {
       "autoprefixer": {}
@@ -69,5 +64,15 @@
       "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
     ],
     "testURL": "http://localhost/"
+  },
+  "engines": {
+    "node": "10.11.0",
+    "npm": "6.4.1"
+  },
+  "license": "ISC",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkouk/smart-logger-api.git"
   }
 }
