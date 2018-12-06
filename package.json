@@ -2,18 +2,25 @@
   "name": "smart-logger",
   "version": "1.0.0",
   "description": "Activity logger for companies",
+  "main": "main.js",
   "author": "Vasilis Koukoutis",
+  "engines": {
+    "node": "11.3.0",
+    "npm": "6.4.1"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkouk/smart-logger-api.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "apollo": "vue-cli-service apollo:watch --run \"vue-cli-service serve\"",
-    "apollo:run": "vue-cli-service apollo:run",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "apollo-boost": "^0.1.22",
     "graphql": "^14.0.2",
-    "graphql-type-json": "^0.2.1",
     "register-service-worker": "^1.5.2",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
@@ -64,15 +71,5 @@
       "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
     ],
     "testURL": "http://localhost/"
-  },
-  "engines": {
-    "node": "10.11.0",
-    "npm": "6.4.1"
-  },
-  "license": "ISC",
-  "main": "main.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vkouk/smart-logger-api.git"
   }
 }
