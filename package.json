@@ -22,7 +22,7 @@
     "apollo-boost": "^0.1.22",
     "graphql": "^14.0.2",
     "register-service-worker": "^1.5.2",
-    "vue": "^2.5.17",
+    "vue": "^2.5.18",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
@@ -35,9 +35,9 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "graphql-tag": "^2.9.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.18"
   },
   "postcss": {
     "plugins": {
