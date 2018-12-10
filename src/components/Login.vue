@@ -1,9 +1,44 @@
-<template>
-  <div>hi</div>
-</template>
-
 <script>
+import gql from "graphql-tag";
+import router from "../router";
+
+const SIGNIN_MUTATION = gql`
+  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
+    signin(email: $email, password: $password) {
+      id
+      name
+      email
+    }
+  }
+`;
+
 export default {
-  name: "Login"
+  name: "Login",
+  data: function() {
+    return {
+      //test data
+      email: "vkouk@gmail.com",
+      password: "vaskouk"
+    };
+  },
+  methods: {
+    onLogin() {
+      this.$apolloProvider
+        .mutate({
+          mutation: SIGNIN_MUTATION,
+          variables: {
+            email: this.email,
+            password: this.password
+          }
+        })
+        .then(data => {
+          console.log(data);
+        });
+    }
+  }
 };
 </script>
+
+<template>
+  <button @click="onLogin">Login</button>
+</template>
