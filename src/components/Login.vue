@@ -5,9 +5,12 @@ import router from "../router";
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
     signin(email: $email, password: $password) {
-      id
-      name
-      email
+      user {
+        id
+        name
+        email
+      }
+      token
     }
   }
 `;
@@ -32,7 +35,9 @@ export default {
           }
         })
         .then(data => {
-          console.log(data);
+          const token = data.data.signin.token;
+          localStorage.setItem("token", token);
+          router.push("/");
         });
     }
   }
