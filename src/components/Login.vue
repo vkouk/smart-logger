@@ -1,19 +1,6 @@
 <script>
-import gql from "graphql-tag";
+import { SIGNIN_MUTATION } from "../mutations";
 import router from "../router";
-
-const SIGNIN_MUTATION = gql`
-  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
-    signin(email: $email, password: $password) {
-      user {
-        id
-        name
-        email
-      }
-      token
-    }
-  }
-`;
 
 export default {
   name: "Login",
@@ -38,6 +25,7 @@ export default {
           const token = data.data.signin.token;
           localStorage.setItem("token", token);
           router.push("/");
+          window.location.reload();
         })
         .catch(error => {
           this.error = error.message.replace("GraphQL error:", "");
@@ -50,15 +38,25 @@ export default {
 <template>
   <div class="form">
     <form @submit.prevent="onSubmit" class="form__container">
-      <input type="text" v-model="email" class="form__input">
-      <input type="password" v-model="password" class="form__input">
-      <button @click="onSubmit" class="form__btn">Login</button>
-      <p class="form__error">{{error}}</p>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="text" v-model="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="name">Password</label>
+        <input type="password" v-model="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <button @click="onSubmit" class="btn btn-primary">Login</button>
+      </div>
+      <transition>
+        <p class="alert" :class="{ 'alert-danger': error }">{{error}}</p>
+      </transition>
     </form>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .form {
   display: flex;
   justify-content: center;
@@ -67,16 +65,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  &__input {
-    margin: 10px auto;
-    padding: 5px 25px;
-  }
-  &__error {
-    color: #de1212;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
   }
 }
 </style>

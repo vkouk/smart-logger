@@ -1,52 +1,62 @@
 <template>
-  <ul class="header__nav__list">
-    <li class="header__nav__item">
+  <ul class="nav navbar-nav navbar-right">
+    <li>
       <router-link to="/">Home</router-link>
     </li>
-    <li class="header__nav__item">
-      <router-link to="/profile/1">Profile</router-link>
+    <li>
+      <router-link to="/logs">Activity Logs</router-link>
     </li>
-    <li class="header__nav__item">
-      <router-link to="/login">Login</router-link>
+    <li v-if="userExists">
+      <router-link :to="{ name : 'profile', params : { id : user.id } }">Profile</router-link>
     </li>
-    <li class="header__nav__item">
-      <router-link to="/register">Register</router-link>
+    <li v-if="!userExists">
+      <router-link to="/auth">Auth</router-link>
+    </li>
+    <li v-if="userExists">
+      <a @click="onLogout">Logout</a>
     </li>
   </ul>
 </template>
 
 <script>
-export default {
-  name: "Nav"
-};
-</script>
+import { GET_USER_QUERY } from "../queries";
+import router from "../router";
 
-<style lang="scss">
-.header__nav {
-  &__list {
-    display: flex;
-    padding: 0;
-  }
-  &__item {
-    list-style: none;
-    & > a {
-      font-weight: 700;
-      color: #393e46;
-      text-decoration: none;
-      margin-right: 15px;
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: all 0.5s ease;
-      &.is-active {
-        &::after {
-          content: "";
-          border: 2px solid #fc3c3c;
-          display: flex;
-          width: 35px;
-        }
-      }
+export default {
+  name: "Nav",
+  data() {
+    return {
+      user: {}
+    };
+  },
+  computed: {
+    userExists() {
+      return Object.keys(this.user).length > 0;
+    }
+  },
+  methods: {
+    fetchUser() {
+      this.$apolloProvider.defaultClient
+        .query({
+          query: GET_USER_QUERY
+        })
+        .then(({ data }) => {
+          if (data.me) {
+            this.user = data.me;
+          }
+        });
+    },
+    onLogout(e) {
+      e.preventDefault();
+      localStorage.removeItem("token");
+      this.user = {};
+      router.push("/auth");
+    }
+  },
+  created() {
+    if (!this.userExists && localStorage.getItem("token")) {
+      this.fetchUser();
     }
   }
-}
-</style>
+};
+</script>

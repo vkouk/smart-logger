@@ -1,12 +1,32 @@
 <template>
-  <div class="header">
-    <div class="header__logo">
-      <div class="header__logo__text">
-        <router-link to="/">SmartLogger</router-link>
+  <header>
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle uarr collapsed"
+            data-toggle="collapse"
+            data-target="#navbar-collapse-uarr"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="header__logo">
+            <div class="header__logo__text">
+              <router-link to="/">SmartLogger</router-link>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
+          <Nav></Nav>
+        </div>
       </div>
-    </div>
-    <Nav></Nav>
-  </div>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -22,17 +42,10 @@ export default {
 
 <style lang="scss">
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  & > div {
-    margin: 10px 0;
-  }
   &__logo {
     border: 2px solid #393e46;
-    padding: 25px;
+    padding: 10px;
+    margin-top: 15px;
     transform: skew(160deg);
     &__text {
       & > a {
@@ -44,6 +57,10 @@ export default {
         text-transform: uppercase;
         letter-spacing: 0.5px;
         transition: all 0.5s ease;
+        &:hover {
+          text-decoration: none;
+          color: #777;
+        }
       }
     }
   }

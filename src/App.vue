@@ -17,12 +17,7 @@ export default {
 </script>
 
 <style>
-*,
-body,
-html {
-  font-family: "Montserrat", sans-serif;
-  background: #fff4e0;
-}
+@import "./assets/css/styles.css";
 
 .wrapper {
   max-width: 1440px;
