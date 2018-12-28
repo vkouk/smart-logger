@@ -49,6 +49,7 @@ export default {
     onLogout(e) {
       e.preventDefault();
       localStorage.removeItem("token");
+      localStorage.removeItem("user");
       this.user = {};
       router.push("/auth");
     }
