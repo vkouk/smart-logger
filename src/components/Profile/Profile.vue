@@ -4,7 +4,7 @@
       <div class="col-sm-12">
         <div class="form__info">
           <h3>Hi, {{user.name}}</h3>
-          <img :src="user.avatar" :alt="user.name" class="img-circle img-responsive img-thumbnail">
+          <img v-if="user.avatar.length > 0" :src="user.avatar" :alt="user.name" class="img-circle img-responsive img-thumbnail">
         </div>
         <p>Edit or update your personal profile.</p>
         <profile-form :user="user"></profile-form>
