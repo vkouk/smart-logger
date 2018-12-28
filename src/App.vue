@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 
 export default {
   name: "App",
@@ -18,9 +18,22 @@ export default {
 
 <style>
 @import "./assets/css/styles.css";
+@import "./assets/css/nprogress.css";
 
-.wrapper {
-  max-width: 1440px;
-  margin: 0 auto;
+a:hover {
+  cursor: pointer;
+}
+
+#nprogress .bar {
+  background: #777;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #777;
+  border-left-color: #777;
+}
+
+.form-control {
+  padding: 10px 40px;
 }
 </style>

@@ -3,7 +3,7 @@
     <li>
       <router-link to="/">Home</router-link>
     </li>
-    <li>
+    <li v-if="userExists">
       <router-link to="/logs">Activity Logs</router-link>
     </li>
     <li v-if="userExists">
@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { GET_USER_QUERY } from "../queries";
-import router from "../router";
+import { GET_USER_QUERY } from "../../queries";
+import router from "../../router";
 
 export default {
   name: "Nav",

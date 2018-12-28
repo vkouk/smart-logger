@@ -7,6 +7,7 @@ export const SIGNIN_MUTATION = gql`
         id
         name
         email
+        avatar
       }
       token
     }
@@ -24,7 +25,23 @@ export const SIGNUP_MUTATION = gql`
         id
         name
         email
+        avatar
       }
+    }
+  }
+`;
+
+export const UPDATE_USER_MUTATION = gql`
+  mutation UPDATE_USER_MUTATION(
+    $email: String
+    $name: String
+    $avatar: String
+  ) {
+    updateUser(email: $email, name: $name, avatar: $avatar) {
+      id
+      name
+      email
+      avatar
     }
   }
 `;

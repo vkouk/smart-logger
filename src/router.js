@@ -1,12 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./components/Home";
-import Profile from "./components/Profile";
-import Auth from "./components/Auth";
+import Profile from "./components/Profile/Profile";
+import Auth from "./components/Auth/Auth";
+import NProgress from "nprogress";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   linkExactActiveClass: "is-active",
   routes: [
@@ -27,3 +28,13 @@ export default new Router({
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if (from.path !== to.path || from.path === to.path) {
+    NProgress.start();
+    NProgress.done();
+    next();
+  }
+});
+
+export default router;
