@@ -4,7 +4,12 @@
       <div class="col-sm-12">
         <div class="form__info">
           <h3>Hi, {{user.name}}</h3>
-          <img v-if="user.avatar.length > 0" :src="user.avatar" :alt="user.name" class="img-circle img-responsive img-thumbnail">
+          <img
+            v-if="user.avatar && user.avatar.length > 0"
+            :src="user.avatar"
+            :alt="user.name"
+            class="img-circle img-responsive img-thumbnail"
+          >
         </div>
         <p>Edit or update your personal profile.</p>
         <profile-form :user="user"></profile-form>
@@ -39,11 +44,11 @@ export default {
   align-items: center;
   flex-direction: column;
 }
-  .img-thumbnail {
-    max-height: 80px;
-  }
-  .form__info {
-    display: flex;
-    align-items: center;
-  }
+.img-thumbnail {
+  max-height: 80px;
+}
+.form__info {
+  display: flex;
+  align-items: center;
+}
 </style>
