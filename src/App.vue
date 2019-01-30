@@ -18,7 +18,6 @@ export default {
 
 <style>
 @import "./assets/css/styles.css";
-@import "./assets/css/nprogress.css";
 
 a:hover {
   cursor: pointer;
