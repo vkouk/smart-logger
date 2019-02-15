@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./components/Home";
 import Profile from "./components/Profile/Profile";
 import Auth from "./components/Auth/Auth";
+import Logs from "./components/Logs/Logs";
 import NProgress from "nprogress";
 
 Vue.use(Router);
@@ -25,6 +26,11 @@ const router = new Router({
       path: "/auth",
       name: "auth",
       component: Auth
+    },
+    {
+      path: "/logs",
+      name: "logs",
+      component: Logs
     }
   ]
 });

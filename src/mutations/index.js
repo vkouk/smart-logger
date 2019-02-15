@@ -45,3 +45,15 @@ export const UPDATE_USER_MUTATION = gql`
     }
   }
 `;
+
+export const CREATE_LOG = gql`
+  mutation CREATE_LOG($log: String!, $logTime: Int!) {
+    createLog(log: $log, logTime: $logTime) {
+      log
+      logTime
+      user {
+        name
+      }
+    }
+  }
+`;
