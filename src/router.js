@@ -8,7 +8,7 @@ import NProgress from "nprogress";
 Vue.use(Router);
 
 const router = new Router({
-  mode: "history",
+  mode: "hash",
   linkExactActiveClass: "is-active",
   routes: [
     {
