@@ -51,9 +51,6 @@ export const CREATE_LOG = gql`
     createLog(log: $log, logTime: $logTime) {
       log
       logTime
-      user {
-        name
-      }
     }
   }
 `;

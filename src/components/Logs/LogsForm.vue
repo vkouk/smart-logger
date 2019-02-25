@@ -18,8 +18,8 @@
         <button
           @click.prevent="addLog"
           class="btn btn-info"
-          :disabled="log.length === 0"
-        >Update Profile</button>
+          :disabled="log.length === 0 || (logTime > 8 || logTime <= 0)"
+        >Add Log</button>
       </div>
       <p
         class="alert"
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import LogsForm from "./LogsForm";
 import { CREATE_LOG } from "../../mutations";
 
 export default {

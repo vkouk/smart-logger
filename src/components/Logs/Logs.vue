@@ -4,18 +4,22 @@
       <div class="col-sm-6">
         <logs-form></logs-form>
       </div>
-      <div class="col-sm-6">test</div>
+      <div class="col-sm-6">
+        <logs-list></logs-list>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import LogsForm from "./LogsForm";
+import LogsList from "./LogsList";
 
 export default {
   name: "Logs",
   components: {
-    LogsForm
+    LogsForm,
+    LogsList
   }
 };
 </script>
