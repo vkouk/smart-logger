@@ -15,20 +15,10 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
+## Deployment
 
-### Lints and fixes files
-```
-npm run lint
-```
+Application is deployed in www.netlify.com and running in production mode.
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Authors
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* **Vasilis Koukoutis** - *Initial work* - [vkouk](https://github.com/vkouk)
